@@ -1,0 +1,2023 @@
+WARNING:xformers:WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.3.1+cu121 with CUDA 1201 (you have 2.11.0+cu130)
+    Python  3.10.14 (you have 3.10.20)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+/home/vile/stable-diffusion-webui/venv/lib/python3.10/site-packages/xformers/ops/swiglu_op.py:128: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(cls, ctx, x, w1, b1, w2, b2, w3, b3):
+/home/vile/stable-diffusion-webui/venv/lib/python3.10/site-packages/xformers/ops/swiglu_op.py:149: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(cls, ctx, dx5):
+WARNING:bitsandbytes.cextension:Could not find the bitsandbytes CUDA binary at PosixPath('/home/vile/stable-diffusion-webui/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cuda130.so')
+WARNING:bitsandbytes.cextension:The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers, 8-bit multiplication, and GPU quantization are unavailable.
+=============================================================================
+You are running gradio 4.44.1.
+The program is designed to work with gradio 4.40.0.
+Using a different version of gradio is extremely likely to break the program.
+
+Reasons why you have the mismatched gradio version can be:
+  - you use --skip-install flag.
+  - you use webui.py to start the program instead of launch.py.
+  - an extension installs the incompatible gradio version.
+
+Use --skip-version-check commandline argument to disable this check.
+=============================================================================
+Python 3.10.20 (main, Mar  3 2026, 09:24:47) [GCC 13.3.0]
+Version: f2.0.1v1.10.1-v1.10.1
+Commit hash: 82a973c04367123ae98bd9abdf80d9eda9b910e2
+Installing xformers
+Legacy Preprocessor init warning: Unable to install insightface automatically. Please try run `pip install insightface` manually.
+Launching API server with arguments: --nowebui --no-half-vae --xformers --api
+Total VRAM 11901 MB, total RAM 31994 MB
+pytorch version: 2.11.0+cu130
+xformers version: 0.0.27
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 3060 : native
+Hint: your device supports --cuda-malloc for potential speed improvements.
+VAE dtype preferences: [torch.bfloat16, torch.float32] -> torch.bfloat16
+CUDA Using Stream: False
+Using pytorch cross attention
+Using pytorch attention for VAE
+ControlNet preprocessor location: /home/vile/stable-diffusion-webui/models/ControlNetPreprocessor
+[-] ADetailer: Failed to load model 'hand_yolov8n.pt' from huggingface
+[-] ADetailer: Failed to load model 'face_yolov8s.pt' from huggingface
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 24edbba8-87da-465b-92bd-1d9fc6636024)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 24edbba8-87da-465b-92bd-1d9fc6636024)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+Retrying in 1s [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 7f5929f6-f505-49b4-bfc5-d43cf1b802f6)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 7f5929f6-f505-49b4-bfc5-d43cf1b802f6)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: e8cecc41-f880-4c9a-a130-440d08b6674e)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8s-seg.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: e8cecc41-f880-4c9a-a130-440d08b6674e)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8s-seg.pt
+Retrying in 1s [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Retrying in 1s [Retry 1/5].
+Retrying in 1s [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: b60a6eef-5b3d-4eec-b1c8-9b42b4605f01)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: b60a6eef-5b3d-4eec-b1c8-9b42b4605f01)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+Retrying in 1s [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: e2744829-5c89-4b53-a019-643b68dd1109)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: e2744829-5c89-4b53-a019-643b68dd1109)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+Retrying in 2s [Retry 2/5].
+WARNING:huggingface_hub.utils._http:Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: ed153f9a-3487-4a39-a1f1-22a2525696ad)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8s-seg.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: ed153f9a-3487-4a39-a1f1-22a2525696ad)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8s-seg.pt
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: c7969f27-9467-4633-a75b-0f33088c9e1c)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: c7969f27-9467-4633-a75b-0f33088c9e1c)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 1648f212-dd32-45df-9ba5-2d682cd9212e)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 1648f212-dd32-45df-9ba5-2d682cd9212e)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+Retrying in 2s [Retry 2/5].
+WARNING:huggingface_hub.utils._http:Retrying in 2s [Retry 2/5].
+Retrying in 2s [Retry 2/5].
+WARNING:huggingface_hub.utils._http:Retrying in 2s [Retry 2/5].
+Retrying in 2s [Retry 2/5].
+WARNING:huggingface_hub.utils._http:Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: a2cafa2b-24d2-4a1e-a811-bf8f2fb91717)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: a2cafa2b-24d2-4a1e-a811-bf8f2fb91717)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+Retrying in 4s [Retry 3/5].
+WARNING:huggingface_hub.utils._http:Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 30cc127b-5992-452f-8e3d-99a615ee7afb)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8s-seg.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 30cc127b-5992-452f-8e3d-99a615ee7afb)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8s-seg.pt
+Retrying in 4s [Retry 3/5].
+WARNING:huggingface_hub.utils._http:Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 5919ea5b-5271-4b4c-9739-d013048149d1)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 5919ea5b-5271-4b4c-9739-d013048149d1)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+Retrying in 4s [Retry 3/5].
+WARNING:huggingface_hub.utils._http:Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 49f27c4e-5fb5-421c-a5d1-1a68fb9822c8)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 49f27c4e-5fb5-421c-a5d1-1a68fb9822c8)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+Retrying in 4s [Retry 3/5].
+WARNING:huggingface_hub.utils._http:Retrying in 4s [Retry 3/5].
+[-] ADetailer: Failed to load model 'person_yolov8s-seg.pt' from huggingface
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 71d59a27-9741-43d6-b2cc-3d2599848f94)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 71d59a27-9741-43d6-b2cc-3d2599848f94)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/yolo-world-mirror/resolve/main/yolov8x-worldv2.pt
+Retrying in 8s [Retry 4/5].
+WARNING:huggingface_hub.utils._http:Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 8e59601b-0af3-4166-8809-9befe7392402)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 8e59601b-0af3-4166-8809-9befe7392402)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/person_yolov8n-seg.pt
+Retrying in 8s [Retry 4/5].
+WARNING:huggingface_hub.utils._http:Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 20dc13b0-6779-4240-8d6b-a5bf1318cae1)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+WARNING:huggingface_hub.utils._http:'(ReadTimeoutError("HTTPSConnectionPool(host='hf-mirror.com', port=443): Read timed out. (read timeout=1)"), '(Request ID: 20dc13b0-6779-4240-8d6b-a5bf1318cae1)')' thrown while requesting HEAD https://hf-mirror.com/Bingsu/adetailer/resolve/main/face_yolov8n.pt
+Retrying in 8s [Retry 4/5].
+WARNING:huggingface_hub.utils._http:Retrying in 8s [Retry 4/5].
+[-] ADetailer: Failed to load model 'yolov8x-worldv2.pt' from huggingface
+[-] ADetailer: Failed to load model 'person_yolov8n-seg.pt' from huggingface
+[-] ADetailer: Failed to load model 'face_yolov8n.pt' from huggingface
+[-] ADetailer initialized. version: 26.2.0, num models: 6
+[Forge Couple] [0;32mINFO[0m - Loaded Adv. Presets...
+[Forge Couple] [0;32mINFO[0m - Loaded Adv. Presets...
+2026-04-16 16:26:54,584 - ControlNet - [0;32mINFO[0m - ControlNet UI callback registered.
+Model selected: {'checkpoint_info': {'filename': '/home/vile/stable-diffusion-webui/models/Stable-diffusion/novaFurryXL_ilV170.safetensors', 'hash': '6560c53c'}, 'additional_modules': ['/home/vile/stable-diffusion-webui/models/VAE/sdxl_vae.safetensors'], 'unet_storage_dtype': None}
+Using online LoRAs in FP16: False
+Startup time: 42.6s (prepare environment: 6.5s, import torch: 4.3s, import gradio: 2.2s, other imports: 0.3s, load scripts: 24.0s, controlnet.py: 5.2s).
+INFO:     Started server process [906446]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:7861 (Press CTRL+C to quit)
+WARNING:root:Sampler Scheduler autocorrection: "DPM++ 2M" -> "DPM++ 2M", "None" -> "Automatic"
+Loading Model: {'checkpoint_info': {'filename': '/home/vile/stable-diffusion-webui/models/Stable-diffusion/novaFurryXL_ilV170.safetensors', 'hash': '6560c53c'}, 'additional_modules': ['/home/vile/stable-diffusion-webui/models/VAE/sdxl_vae.safetensors'], 'unet_storage_dtype': None}
+[Unload] Trying to free all memory for cuda:0 with 0 models keep loaded ... Done.
+StateDict Keys: {'unet': 1680, 'vae': 250, 'text_encoder': 197, 'text_encoder_2': 519, 'ignore': 0}
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+IntegratedAutoencoderKL Unexpected: ['model_ema.decay', 'model_ema.num_updates']
+K-Model Created: {'storage_dtype': torch.float16, 'computation_dtype': torch.float16}
+Model loaded in 2.3s (unload existing model: 0.3s, forge model load: 2.0s).
+[LORA] Loaded /home/vile/stable-diffusion-webui/models/Lora/vilefox_ep4.safetensors for KModel-UNet with 722 keys at weight 0.85 (skipped 0 keys) with on_the_fly = False
+[LORA] Loaded /home/vile/stable-diffusion-webui/models/Lora/vilefox_ep4.safetensors for KModel-CLIP with 264 keys at weight 0.85 (skipped 0 keys) with on_the_fly = False
+[Unload] Trying to free 3051.58 MB for cuda:0 with 0 models keep loaded ... Done.
+[Memory Management] Target: JointTextEncoder, Free GPU: 1020.71 MB, Model Require: 1559.68 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -1562.97 MB, CPU Swap Loaded (blocked method): 1559.68 MB, GPU Loaded: 193.00 MB
+Moving model(s) has taken 2.16 seconds
+[Unload] Trying to free 1024.00 MB for cuda:0 with 1 models keep loaded ... Current free memory is 1010.86 MB ... Done.
+[Unload] Trying to free 7390.16 MB for cuda:0 with 0 models keep loaded ... Current free memory is 1011.47 MB ... Unload model JointTextEncoder Done.
+[Memory Management] Target: KModel, Free GPU: 1011.47 MB, Model Require: 4897.05 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -4909.58 MB, CPU Swap Loaded (blocked method): 4897.05 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 7.59 seconds
+  0%|          | 0/28 [00:00<?, ?it/s]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1010.97 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   0%|          | 0/28 [00:00<?, ?it/s][A  4%|▎         | 1/28 [00:03<01:28,  3.29s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 970.85 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   7%|▋         | 2/28 [00:01<00:25,  1.01it/s][A  7%|▋         | 2/28 [00:05<01:05,  2.53s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 971.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  11%|█         | 3/28 [00:04<00:39,  1.59s/it][A 11%|█         | 3/28 [00:07<01:01,  2.47s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 989.00 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  14%|█▍        | 4/28 [00:06<00:40,  1.67s/it][A 14%|█▍        | 4/28 [00:09<00:53,  2.21s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 991.94 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  18%|█▊        | 5/28 [00:08<00:43,  1.91s/it][A 18%|█▊        | 5/28 [00:11<00:51,  2.26s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 986.69 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  21%|██▏       | 6/28 [00:10<00:41,  1.88s/it][A 21%|██▏       | 6/28 [00:13<00:46,  2.11s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 983.00 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  25%|██▌       | 7/28 [00:12<00:42,  2.03s/it][A 25%|██▌       | 7/28 [00:16<00:45,  2.19s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 985.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  29%|██▊       | 8/28 [00:14<00:39,  1.95s/it][A 29%|██▊       | 8/28 [00:17<00:41,  2.06s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 994.57 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  32%|███▏      | 9/28 [00:16<00:39,  2.08s/it][A 32%|███▏      | 9/28 [00:20<00:40,  2.15s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 985.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  36%|███▌      | 10/28 [00:18<00:35,  2.00s/it][A 36%|███▌      | 10/28 [00:21<00:36,  2.05s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 990.50 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  39%|███▉      | 11/28 [00:20<00:34,  2.02s/it][A 39%|███▉      | 11/28 [00:24<00:35,  2.06s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 989.00 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  43%|████▎     | 12/28 [00:23<00:33,  2.08s/it][A 43%|████▎     | 12/28 [00:26<00:33,  2.11s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 998.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  46%|████▋     | 13/28 [00:24<00:29,  1.98s/it][A 46%|████▋     | 13/28 [00:28<00:29,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 998.32 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  50%|█████     | 14/28 [00:27<00:29,  2.08s/it][A 50%|█████     | 14/28 [00:30<00:29,  2.09s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1002.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  54%|█████▎    | 15/28 [00:28<00:25,  1.99s/it][A 54%|█████▎    | 15/28 [00:32<00:26,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1004.32 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  57%|█████▋    | 16/28 [00:31<00:25,  2.09s/it][A 57%|█████▋    | 16/28 [00:34<00:25,  2.09s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1002.88 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  61%|██████    | 17/28 [00:32<00:20,  1.84s/it][A 61%|██████    | 17/28 [00:35<00:20,  1.84s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1003.63 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  64%|██████▍   | 18/28 [00:34<00:18,  1.84s/it][A 64%|██████▍   | 18/28 [00:37<00:18,  1.85s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1003.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  68%|██████▊   | 19/28 [00:36<00:17,  1.97s/it][A 68%|██████▊   | 19/28 [00:39<00:17,  1.97s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 995.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  71%|███████▏  | 20/28 [00:38<00:15,  1.90s/it][A 71%|███████▏  | 20/28 [00:41<00:15,  1.90s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 995.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  75%|███████▌  | 21/28 [00:40<00:14,  2.01s/it][A 75%|███████▌  | 21/28 [00:43<00:14,  2.01s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 998.32 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  79%|███████▊  | 22/28 [00:42<00:11,  1.94s/it][A 79%|███████▊  | 22/28 [00:45<00:11,  1.94s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1014.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  82%|████████▏ | 23/28 [00:44<00:10,  2.04s/it][A 82%|████████▏ | 23/28 [00:47<00:10,  2.04s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1014.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  86%|████████▌ | 24/28 [00:46<00:07,  2.00s/it][A 86%|████████▌ | 24/28 [00:49<00:07,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1025.94 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  89%|████████▉ | 25/28 [00:48<00:06,  2.09s/it][A 89%|████████▉ | 25/28 [00:52<00:06,  2.09s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1028.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  93%|█████████▎| 26/28 [00:50<00:03,  2.00s/it][A 93%|█████████▎| 26/28 [00:53<00:03,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1028.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  96%|█████████▋| 27/28 [00:52<00:02,  2.09s/it][A 96%|█████████▋| 27/28 [00:56<00:02,  2.09s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1026.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress: 100%|██████████| 28/28 [00:54<00:00,  1.97s/it][A100%|██████████| 28/28 [00:57<00:00,  1.97s/it]100%|██████████| 28/28 [00:57<00:00,  2.07s/it]
+[Unload] Trying to free 1840.92 MB for cuda:0 with 0 models keep loaded ... Current free memory is 1019.78 MB ... Unload model KModel Done.
+[Memory Management] Target: IntegratedAutoencoderKL, Free GPU: 1019.78 MB, Model Require: 159.56 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -163.78 MB, CPU Swap Loaded (blocked method): 159.56 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 0.03 seconds
+
+Total progress: 100%|██████████| 28/28 [00:55<00:00,  1.97s/it][ATotal progress: 100%|██████████| 28/28 [00:55<00:00,  1.98s/it]
+INFO:     127.0.0.1:34320 - "POST /sdapi/v1/txt2img HTTP/1.1" 200 OK
+WARNING:root:Sampler Scheduler autocorrection: "DPM++ 2M" -> "DPM++ 2M", "None" -> "Automatic"
+[LORA] Loaded /home/vile/stable-diffusion-webui/models/Lora/vilefox_ep6.safetensors for KModel-UNet with 722 keys at weight 0.85 (skipped 0 keys) with on_the_fly = False
+[LORA] Loaded /home/vile/stable-diffusion-webui/models/Lora/vilefox_ep6.safetensors for KModel-CLIP with 264 keys at weight 0.85 (skipped 0 keys) with on_the_fly = False
+[Unload] Trying to free 3302.87 MB for cuda:0 with 0 models keep loaded ... Current free memory is 1013.66 MB ... Unload model IntegratedAutoencoderKL Done.
+[Memory Management] Target: JointTextEncoder, Free GPU: 1013.66 MB, Model Require: 1752.98 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -1763.32 MB, CPU Swap Loaded (blocked method): 1752.98 MB, GPU Loaded: 386.00 MB
+Moving model(s) has taken 39.01 seconds
+[Unload] Trying to free 1024.00 MB for cuda:0 with 1 models keep loaded ... Current free memory is 1051.11 MB ... Done.
+[Unload] Trying to free 7390.16 MB for cuda:0 with 0 models keep loaded ... Current free memory is 1059.09 MB ... Unload model JointTextEncoder Done.
+[Memory Management] Target: KModel, Free GPU: 1059.09 MB, Model Require: 4897.05 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -4861.95 MB, CPU Swap Loaded (blocked method): 4870.35 MB, GPU Loaded: 26.70 MB
+Moving model(s) has taken 9.36 seconds
+  0%|          | 0/28 [00:00<?, ?it/s]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1032.98 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   0%|          | 0/28 [00:00<?, ?it/s][A  4%|▎         | 1/28 [00:01<00:47,  1.74s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1016.91 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   7%|▋         | 2/28 [00:02<00:29,  1.12s/it][A  7%|▋         | 2/28 [00:03<00:52,  2.03s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1023.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  11%|█         | 3/28 [00:04<00:36,  1.45s/it][A 11%|█         | 3/28 [00:05<00:49,  1.98s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1033.07 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  14%|█▍        | 4/28 [00:05<00:37,  1.58s/it][A 14%|█▍        | 4/28 [00:07<00:45,  1.90s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1040.07 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  18%|█▊        | 5/28 [00:08<00:41,  1.80s/it][A 18%|█▊        | 5/28 [00:09<00:46,  2.02s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1041.69 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  21%|██▏       | 6/28 [00:09<00:38,  1.76s/it][A 21%|██▏       | 6/28 [00:11<00:41,  1.91s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1041.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  25%|██▌       | 7/28 [00:12<00:40,  1.92s/it][A 25%|██▌       | 7/28 [00:13<00:42,  2.02s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1040.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  29%|██▊       | 8/28 [00:13<00:36,  1.84s/it][A 29%|██▊       | 8/28 [00:15<00:38,  1.90s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1041.69 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  32%|███▏      | 9/28 [00:15<00:37,  1.95s/it][A 32%|███▏      | 9/28 [00:17<00:37,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1040.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  36%|███▌      | 10/28 [00:17<00:33,  1.87s/it][A 36%|███▌      | 10/28 [00:19<00:34,  1.90s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1040.88 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  39%|███▉      | 11/28 [00:19<00:32,  1.92s/it][A 39%|███▉      | 11/28 [00:21<00:33,  1.95s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1041.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  43%|████▎     | 12/28 [00:21<00:32,  2.00s/it][A 43%|████▎     | 12/28 [00:23<00:32,  2.02s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1036.19 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  46%|████▋     | 13/28 [00:23<00:28,  1.90s/it][A 46%|████▋     | 13/28 [00:25<00:28,  1.91s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1037.19 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  50%|█████     | 14/28 [00:25<00:27,  1.99s/it][A 50%|█████     | 14/28 [00:27<00:27,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1037.32 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  54%|█████▎    | 15/28 [00:27<00:24,  1.90s/it][A 54%|█████▎    | 15/28 [00:29<00:24,  1.91s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1037.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  57%|█████▋    | 16/28 [00:29<00:23,  2.00s/it][A 57%|█████▋    | 16/28 [00:31<00:24,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1047.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  61%|██████    | 17/28 [00:31<00:21,  1.92s/it][A 61%|██████    | 17/28 [00:33<00:21,  1.92s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1047.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  64%|██████▍   | 18/28 [00:33<00:20,  2.00s/it][A 64%|██████▍   | 18/28 [00:35<00:20,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1048.57 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  68%|██████▊   | 19/28 [00:35<00:17,  1.93s/it][A 68%|██████▊   | 19/28 [00:37<00:17,  1.93s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1048.57 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  71%|███████▏  | 20/28 [00:37<00:15,  1.93s/it][A 71%|███████▏  | 20/28 [00:39<00:15,  1.93s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1042.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  75%|███████▌  | 21/28 [00:39<00:14,  2.00s/it][A 75%|███████▌  | 21/28 [00:41<00:14,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1044.57 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  79%|███████▊  | 22/28 [00:41<00:11,  1.91s/it][A 79%|███████▊  | 22/28 [00:42<00:11,  1.91s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1044.57 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  82%|████████▏ | 23/28 [00:43<00:10,  2.01s/it][A 82%|████████▏ | 23/28 [00:45<00:10,  2.01s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1047.63 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  86%|████████▌ | 24/28 [00:45<00:07,  1.92s/it][A 86%|████████▌ | 24/28 [00:46<00:07,  1.92s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1048.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  89%|████████▉ | 25/28 [00:47<00:06,  2.03s/it][A 89%|████████▉ | 25/28 [00:49<00:06,  2.03s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1049.00 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  93%|█████████▎| 26/28 [00:49<00:03,  1.91s/it][A 93%|█████████▎| 26/28 [00:50<00:03,  1.91s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1049.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  96%|█████████▋| 27/28 [00:51<00:02,  2.01s/it][A 96%|█████████▋| 27/28 [00:53<00:02,  2.01s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1048.63 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress: 100%|██████████| 28/28 [00:53<00:00,  2.02s/it][A100%|██████████| 28/28 [00:55<00:00,  2.02s/it]100%|██████████| 28/28 [00:55<00:00,  1.97s/it]
+[Unload] Trying to free 1840.92 MB for cuda:0 with 0 models keep loaded ... Current free memory is 1047.66 MB ... Unload model KModel Done.
+[Memory Management] Target: IntegratedAutoencoderKL, Free GPU: 1074.41 MB, Model Require: 159.56 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -109.15 MB, CPU Swap Loaded (blocked method): 121.50 MB, GPU Loaded: 38.06 MB
+Moving model(s) has taken 0.08 seconds
+
+Total progress: 100%|██████████| 28/28 [00:53<00:00,  2.02s/it][ATotal progress: 100%|██████████| 28/28 [00:53<00:00,  1.92s/it]WARNING:root:Sampler Scheduler autocorrection: "DPM++ 2M" -> "DPM++ 2M", "None" -> "Automatic"
+
+[LORA] Loaded /home/vile/stable-diffusion-webui/models/Lora/vilefox_recovered_ep5.safetensors for KModel-UNet with 722 keys at weight 0.85 (skipped 0 keys) with on_the_fly = False
+[LORA] Loaded /home/vile/stable-diffusion-webui/models/Lora/vilefox_recovered_ep5.safetensors for KModel-CLIP with 264 keys at weight 0.85 (skipped 0 keys) with on_the_fly = False
+[Unload] Trying to free 3302.87 MB for cuda:0 with 0 models keep loaded ... Current free memory is 859.18 MB ... Unload model IntegratedAutoencoderKL Done.
+[Memory Management] Target: JointTextEncoder, Free GPU: 897.25 MB, Model Require: 1752.98 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -1879.73 MB, CPU Swap Loaded (blocked method): 1752.98 MB, GPU Loaded: 386.00 MB
+Moving model(s) has taken 2.72 seconds
+[Unload] Trying to free 1024.00 MB for cuda:0 with 1 models keep loaded ... Current free memory is 907.87 MB ... Done.
+[Unload] Trying to free 7390.16 MB for cuda:0 with 0 models keep loaded ... Current free memory is 907.78 MB ... Unload model JointTextEncoder Done.
+[Memory Management] Target: KModel, Free GPU: 907.78 MB, Model Require: 4897.05 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -5013.27 MB, CPU Swap Loaded (blocked method): 4897.05 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 6.23 seconds
+  0%|          | 0/28 [00:00<?, ?it/s]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 903.91 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   0%|          | 0/28 [00:00<?, ?it/s][A  4%|▎         | 1/28 [00:01<00:47,  1.77s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 902.97 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   7%|▋         | 2/28 [00:02<00:29,  1.15s/it][A  7%|▋         | 2/28 [00:04<00:54,  2.08s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 905.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  11%|█         | 3/28 [00:04<00:35,  1.44s/it][A 11%|█         | 3/28 [00:05<00:49,  1.97s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 883.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  14%|█▍        | 4/28 [00:06<00:42,  1.78s/it][A 14%|█▍        | 4/28 [00:08<00:51,  2.13s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 890.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  18%|█▊        | 5/28 [00:08<00:41,  1.80s/it][A 18%|█▊        | 5/28 [00:10<00:46,  2.02s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 904.88 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  21%|██▏       | 6/28 [00:10<00:43,  1.97s/it][A 21%|██▏       | 6/28 [00:12<00:46,  2.12s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 908.94 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  25%|██▌       | 7/28 [00:12<00:40,  1.92s/it][A 25%|██▌       | 7/28 [00:14<00:42,  2.02s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 894.00 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  29%|██▊       | 8/28 [00:14<00:39,  1.96s/it][A 29%|██▊       | 8/28 [00:16<00:40,  2.03s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 897.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  32%|███▏      | 9/28 [00:16<00:38,  2.03s/it][A 32%|███▏      | 9/28 [00:18<00:39,  2.07s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 887.94 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  36%|███▌      | 10/28 [00:18<00:35,  1.96s/it][A 36%|███▌      | 10/28 [00:20<00:35,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 885.88 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  39%|███▉      | 11/28 [00:20<00:34,  2.05s/it][A 39%|███▉      | 11/28 [00:22<00:35,  2.07s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 895.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  43%|████▎     | 12/28 [00:22<00:31,  1.98s/it][A 43%|████▎     | 12/28 [00:24<00:31,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 890.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  46%|████▋     | 13/28 [00:24<00:31,  2.09s/it][A 46%|████▋     | 13/28 [00:26<00:31,  2.10s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 887.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  50%|█████     | 14/28 [00:26<00:27,  2.00s/it][A 50%|█████     | 14/28 [00:28<00:28,  2.01s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 889.94 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  54%|█████▎    | 15/28 [00:28<00:27,  2.08s/it][A 54%|█████▎    | 15/28 [00:30<00:27,  2.09s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 901.50 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  57%|█████▋    | 16/28 [00:30<00:23,  1.99s/it][A 57%|█████▋    | 16/28 [00:32<00:23,  2.00s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 899.94 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  61%|██████    | 17/28 [00:33<00:22,  2.08s/it][A 61%|██████    | 17/28 [00:34<00:22,  2.08s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 899.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  64%|██████▍   | 18/28 [00:34<00:19,  1.96s/it][A 64%|██████▍   | 18/28 [00:36<00:19,  1.96s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 901.75 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  68%|██████▊   | 19/28 [00:36<00:18,  2.05s/it][A 68%|██████▊   | 19/28 [00:38<00:18,  2.05s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 906.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  71%|███████▏  | 20/28 [00:38<00:16,  2.03s/it][A 71%|███████▏  | 20/28 [00:40<00:16,  2.03s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 906.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  75%|███████▌  | 21/28 [00:40<00:13,  1.98s/it][A 75%|███████▌  | 21/28 [00:42<00:13,  1.98s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 898.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  79%|███████▊  | 22/28 [00:43<00:12,  2.11s/it][A 79%|███████▊  | 22/28 [00:44<00:12,  2.11s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 876.19 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  82%|████████▏ | 23/28 [00:45<00:10,  2.03s/it][A 82%|████████▏ | 23/28 [00:46<00:10,  2.03s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 860.19 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  86%|████████▌ | 24/28 [00:47<00:08,  2.15s/it][A 86%|████████▌ | 24/28 [00:49<00:08,  2.15s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 829.69 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  89%|████████▉ | 25/28 [00:49<00:06,  2.04s/it][A 89%|████████▉ | 25/28 [00:51<00:06,  2.04s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 859.50 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  93%|█████████▎| 26/28 [00:51<00:04,  2.14s/it][A 93%|█████████▎| 26/28 [00:53<00:04,  2.14s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 866.50 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  96%|█████████▋| 27/28 [00:53<00:02,  2.04s/it][A 96%|█████████▋| 27/28 [00:55<00:02,  2.04s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 831.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress: 100%|██████████| 28/28 [00:55<00:00,  2.15s/it][A100%|██████████| 28/28 [00:57<00:00,  2.16s/it]100%|██████████| 28/28 [00:57<00:00,  2.06s/it]
+[Unload] Trying to free 1840.92 MB for cuda:0 with 0 models keep loaded ... Current free memory is 841.72 MB ... Unload model KModel Done.
+[Memory Management] Target: IntegratedAutoencoderKL, Free GPU: 841.72 MB, Model Require: 159.56 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -341.84 MB, CPU Swap Loaded (blocked method): 159.56 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 0.04 seconds
+
+Total progress: 100%|██████████| 28/28 [00:56<00:00,  2.15s/it][ATotal progress: 100%|██████████| 28/28 [00:56<00:00,  2.03s/it]
+INFO:     127.0.0.1:36874 - "POST /sdapi/v1/txt2img HTTP/1.1" 200 OK
+WARNING:root:Sampler Scheduler autocorrection: "DPM++ 2M" -> "DPM++ 2M", "None" -> "Automatic"
+[Unload] Trying to free 3302.87 MB for cuda:0 with 0 models keep loaded ... Current free memory is 845.63 MB ... Unload model IntegratedAutoencoderKL Done.
+[Memory Management] Target: JointTextEncoder, Free GPU: 845.63 MB, Model Require: 1752.98 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -1931.35 MB, CPU Swap Loaded (blocked method): 1752.98 MB, GPU Loaded: 386.00 MB
+Moving model(s) has taken 0.34 seconds
+[Unload] Trying to free 7390.16 MB for cuda:0 with 0 models keep loaded ... Current free memory is 852.60 MB ... Unload model JointTextEncoder Done.
+[Memory Management] Target: KModel, Free GPU: 852.61 MB, Model Require: 4897.05 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -5068.44 MB, CPU Swap Loaded (blocked method): 4897.05 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 0.06 seconds
+  0%|          | 0/28 [00:00<?, ?it/s]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 850.11 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   0%|          | 0/28 [00:00<?, ?it/s][A  4%|▎         | 1/28 [00:02<01:02,  2.31s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 855.36 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   7%|▋         | 2/28 [00:02<00:27,  1.05s/it][A  7%|▋         | 2/28 [00:04<00:56,  2.19s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 846.77 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  11%|█         | 3/28 [00:04<00:37,  1.52s/it][A 11%|█         | 3/28 [00:06<00:54,  2.19s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 836.33 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  14%|█▍        | 4/28 [00:06<00:43,  1.82s/it][A 14%|█▍        | 4/28 [00:08<00:53,  2.23s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 841.58 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  18%|█▊        | 5/28 [00:08<00:42,  1.86s/it][A 18%|█▊        | 5/28 [00:10<00:49,  2.13s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 862.14 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  21%|██▏       | 6/28 [00:11<00:46,  2.10s/it][A 21%|██▏       | 6/28 [00:13<00:50,  2.28s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 848.20 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  25%|██▌       | 7/28 [00:12<00:42,  2.01s/it][A 25%|██▌       | 7/28 [00:15<00:44,  2.13s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 854.02 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  29%|██▊       | 8/28 [00:15<00:42,  2.14s/it][A 29%|██▊       | 8/28 [00:17<00:44,  2.23s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 858.08 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  32%|███▏      | 9/28 [00:17<00:38,  2.01s/it][A 32%|███▏      | 9/28 [00:19<00:39,  2.06s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 892.39 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  36%|███▌      | 10/28 [00:19<00:38,  2.14s/it][A 36%|███▌      | 10/28 [00:21<00:39,  2.18s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 884.58 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  39%|███▉      | 11/28 [00:21<00:34,  2.03s/it][A 39%|███▉      | 11/28 [00:23<00:34,  2.06s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 884.64 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  43%|████▎     | 12/28 [00:23<00:34,  2.15s/it][A 43%|████▎     | 12/28 [00:26<00:34,  2.17s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 884.95 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  46%|████▋     | 13/28 [00:25<00:30,  2.04s/it][A 46%|████▋     | 13/28 [00:27<00:30,  2.05s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 890.02 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  50%|█████     | 14/28 [00:27<00:27,  1.99s/it][A 50%|█████     | 14/28 [00:29<00:27,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 892.64 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  54%|█████▎    | 15/28 [00:29<00:27,  2.10s/it][A 54%|█████▎    | 15/28 [00:32<00:27,  2.11s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 893.08 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  57%|█████▋    | 16/28 [00:31<00:24,  2.03s/it][A 57%|█████▋    | 16/28 [00:33<00:24,  2.03s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 899.89 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  61%|██████    | 17/28 [00:33<00:23,  2.12s/it][A 61%|██████    | 17/28 [00:36<00:23,  2.12s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 902.77 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  64%|██████▍   | 18/28 [00:35<00:20,  2.02s/it][A 64%|██████▍   | 18/28 [00:38<00:20,  2.03s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 905.83 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  68%|██████▊   | 19/28 [00:38<00:19,  2.13s/it][A 68%|██████▊   | 19/28 [00:40<00:19,  2.13s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 902.52 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  71%|███████▏  | 20/28 [00:39<00:15,  1.99s/it][A 71%|███████▏  | 20/28 [00:42<00:15,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 906.27 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  75%|███████▌  | 21/28 [00:42<00:14,  2.08s/it][A 75%|███████▌  | 21/28 [00:44<00:14,  2.08s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 904.02 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  79%|███████▊  | 22/28 [00:44<00:12,  2.09s/it][A 79%|███████▊  | 22/28 [00:46<00:12,  2.09s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 907.52 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  82%|████████▏ | 23/28 [00:45<00:09,  1.99s/it][A 82%|████████▏ | 23/28 [00:48<00:09,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 857.20 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  86%|████████▌ | 24/28 [00:48<00:08,  2.14s/it][A 86%|████████▌ | 24/28 [00:50<00:08,  2.14s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 883.89 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  89%|████████▉ | 25/28 [00:50<00:06,  2.05s/it][A 89%|████████▉ | 25/28 [00:52<00:06,  2.05s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 888.33 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  93%|█████████▎| 26/28 [00:52<00:04,  2.26s/it][A 93%|█████████▎| 26/28 [00:55<00:04,  2.26s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 895.70 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  96%|█████████▋| 27/28 [00:56<00:02,  2.62s/it][A 96%|█████████▋| 27/28 [00:58<00:02,  2.63s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 882.70 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress: 100%|██████████| 28/28 [01:18<00:00,  8.42s/it][A100%|██████████| 28/28 [01:20<00:00,  8.42s/it]100%|██████████| 28/28 [01:20<00:00,  2.88s/it]
+[Unload] Trying to free 1840.92 MB for cuda:0 with 0 models keep loaded ... Current free memory is 854.48 MB ... Unload model KModel Done.
+[Memory Management] Target: IntegratedAutoencoderKL, Free GPU: 854.48 MB, Model Require: 159.56 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -329.08 MB, CPU Swap Loaded (blocked method): 159.56 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 0.04 seconds
+
+Total progress: 100%|██████████| 28/28 [01:19<00:00,  8.42s/it][ATotal progress: 100%|██████████| 28/28 [01:19<00:00,  2.83s/it]
+INFO:     127.0.0.1:45020 - "POST /sdapi/v1/txt2img HTTP/1.1" 200 OK
+WARNING:root:Sampler Scheduler autocorrection: "DPM++ 2M" -> "DPM++ 2M", "None" -> "Automatic"
+[Unload] Trying to free 3302.87 MB for cuda:0 with 0 models keep loaded ... Current free memory is 855.45 MB ... Unload model IntegratedAutoencoderKL Done.
+[Memory Management] Target: JointTextEncoder, Free GPU: 855.45 MB, Model Require: 1752.98 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -1921.53 MB, CPU Swap Loaded (blocked method): 1752.98 MB, GPU Loaded: 386.00 MB
+Moving model(s) has taken 0.33 seconds
+[Unload] Trying to free 7390.16 MB for cuda:0 with 0 models keep loaded ... Current free memory is 853.74 MB ... Unload model JointTextEncoder Done.
+[Memory Management] Target: KModel, Free GPU: 853.74 MB, Model Require: 4897.05 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -5067.30 MB, CPU Swap Loaded (blocked method): 4897.05 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 0.05 seconds
+  0%|          | 0/28 [00:00<?, ?it/s]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 851.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   0%|          | 0/28 [00:00<?, ?it/s][A  4%|▎         | 1/28 [00:02<01:07,  2.49s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 853.06 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:   7%|▋         | 2/28 [00:01<00:25,  1.00it/s][A  7%|▋         | 2/28 [00:04<00:57,  2.20s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 874.22 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  11%|█         | 3/28 [00:04<00:36,  1.46s/it][A 11%|█         | 3/28 [00:06<00:54,  2.16s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 885.72 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  14%|█▍        | 4/28 [00:06<00:41,  1.72s/it][A 14%|█▍        | 4/28 [00:08<00:51,  2.15s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 886.03 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  18%|█▊        | 5/28 [00:07<00:39,  1.71s/it][A 18%|█▊        | 5/28 [00:10<00:45,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 897.84 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  21%|██▏       | 6/28 [00:10<00:42,  1.93s/it][A 21%|██▏       | 6/28 [00:12<00:46,  2.13s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 876.28 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  25%|██▌       | 7/28 [00:12<00:39,  1.86s/it][A 25%|██▌       | 7/28 [00:14<00:41,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 875.59 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  29%|██▊       | 8/28 [00:14<00:39,  2.00s/it][A 29%|██▊       | 8/28 [00:16<00:41,  2.08s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 893.32 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  32%|███▏      | 9/28 [00:16<00:36,  1.93s/it][A 32%|███▏      | 9/28 [00:18<00:37,  1.99s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 896.57 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  36%|███▌      | 10/28 [00:18<00:36,  2.03s/it][A 36%|███▌      | 10/28 [00:20<00:37,  2.08s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 897.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  39%|███▉      | 11/28 [00:20<00:32,  1.94s/it][A 39%|███▉      | 11/28 [00:22<00:33,  1.97s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 897.57 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  43%|████▎     | 12/28 [00:22<00:32,  2.04s/it][A 43%|████▎     | 12/28 [00:24<00:32,  2.06s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 896.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  46%|████▋     | 13/28 [00:24<00:29,  1.95s/it][A 46%|████▋     | 13/28 [00:26<00:29,  1.96s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 899.13 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  50%|█████     | 14/28 [00:26<00:27,  1.96s/it][A 50%|█████     | 14/28 [00:28<00:27,  1.97s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 900.94 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  54%|█████▎    | 15/28 [00:28<00:26,  2.03s/it][A 54%|█████▎    | 15/28 [00:30<00:26,  2.04s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 901.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  57%|█████▋    | 16/28 [00:30<00:23,  1.94s/it][A 57%|█████▋    | 16/28 [00:32<00:23,  1.95s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 903.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  61%|██████    | 17/28 [00:32<00:22,  2.04s/it][A 61%|██████    | 17/28 [00:34<00:22,  2.05s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 900.50 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  64%|██████▍   | 18/28 [00:34<00:19,  1.96s/it][A 64%|██████▍   | 18/28 [00:36<00:19,  1.96s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 901.25 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  68%|██████▊   | 19/28 [00:36<00:18,  2.09s/it][A 68%|██████▊   | 19/28 [00:38<00:18,  2.09s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 960.50 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  71%|███████▏  | 20/28 [00:37<00:14,  1.83s/it][A 71%|███████▏  | 20/28 [00:40<00:14,  1.83s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 964.44 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  75%|███████▌  | 21/28 [00:39<00:13,  1.90s/it][A 75%|███████▌  | 21/28 [00:42<00:13,  1.90s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1005.69 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  79%|███████▊  | 22/28 [00:42<00:12,  2.01s/it][A 79%|███████▊  | 22/28 [00:44<00:12,  2.01s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1016.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  82%|████████▏ | 23/28 [00:42<00:08,  1.65s/it][A 82%|████████▏ | 23/28 [00:45<00:08,  1.65s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1018.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  86%|████████▌ | 24/28 [00:43<00:05,  1.38s/it][A 86%|████████▌ | 24/28 [00:46<00:05,  1.38s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1018.38 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  89%|████████▉ | 25/28 [00:44<00:03,  1.20s/it][A 89%|████████▉ | 25/28 [00:46<00:03,  1.20s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1018.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  93%|█████████▎| 26/28 [00:45<00:02,  1.07s/it][A 93%|█████████▎| 26/28 [00:47<00:02,  1.07s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1018.82 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress:  96%|█████████▋| 27/28 [00:47<00:01,  1.43s/it][A 96%|█████████▋| 27/28 [00:49<00:01,  1.43s/it]
+
+----------------------
+[Low GPU VRAM Warning] Your current GPU free memory is 1016.07 MB for this diffusion iteration.
+[Low GPU VRAM Warning] This number is lower than the safe value of 1536.00 MB.
+[Low GPU VRAM Warning] If you continue, you may cause NVIDIA GPU performance degradation for this diffusion process, and the speed may be extremely slow (about 10x slower).
+[Low GPU VRAM Warning] To solve the problem, you can set the 'GPU Weights' (on the top of page) to a lower value.
+[Low GPU VRAM Warning] If you cannot find 'GPU Weights', you can click the 'all' option in the 'UI' area on the left-top corner of the webpage.
+[Low GPU VRAM Warning] If you want to take the risk of NVIDIA GPU fallback and test the 10x slower speed, you can (but are highly not recommended to) add '--disable-gpu-warning' to CMD flags to remove this warning.
+----------------------
+
+
+
+Total progress: 100%|██████████| 28/28 [00:49<00:00,  1.61s/it][A100%|██████████| 28/28 [00:51<00:00,  1.61s/it]100%|██████████| 28/28 [00:51<00:00,  1.85s/it]
+[Unload] Trying to free 1840.92 MB for cuda:0 with 0 models keep loaded ... Current free memory is 1019.47 MB ... Unload model KModel Done.
+[Memory Management] Target: IntegratedAutoencoderKL, Free GPU: 1019.47 MB, Model Require: 159.56 MB, Previously Loaded: 0.00 MB, Inference Require: 1024.00 MB, Remaining: -164.09 MB, CPU Swap Loaded (blocked method): 159.56 MB, GPU Loaded: 0.00 MB
+Moving model(s) has taken 0.04 seconds
+
+Total progress: 100%|██████████| 28/28 [00:49<00:00,  1.61s/it][ATotal progress: 100%|██████████| 28/28 [00:49<00:00,  1.78s/it]
+INFO:     127.0.0.1:47072 - "POST /sdapi/v1/txt2img HTTP/1.1" 200 OK
