@@ -38,9 +38,6 @@ function extract_image_from_gallery(gallery) {
     if (gallery.length == 0) {
         return [null];
     }
-    if (gallery.length == 1) {
-        return [gallery[0]];
-    }
 
     var index = selected_gallery_index();
 
@@ -49,7 +46,7 @@ function extract_image_from_gallery(gallery) {
         index = 0;
     }
 
-    return [gallery[index]];
+    return [[gallery[index]]];
 }
 
 window.args_to_array = Array.from; // Compatibility with e.g. extensions that may expect this to be around
@@ -85,7 +82,7 @@ function switch_to_inpaint_sketch() {
 }
 
 function switch_to_extras() {
-    gradioApp().querySelector('#tabs').querySelectorAll('button')[2].click();
+    gradioApp().querySelector('#tabs').querySelectorAll('button')[3].click();
 
     return Array.from(arguments);
 }
@@ -119,9 +116,16 @@ function create_submit_args(args) {
     // As it is currently, txt2img and img2img send back the previous output args (txt2img_gallery, generation_info, html_info) whenever you generate a new image.
     // This can lead to uploading a huge gallery of previously generated images, which leads to an unnecessary delay between submitting and beginning to generate.
     // I don't know why gradio is sending outputs along with inputs, but we can prevent sending the image gallery here, which seems to be an issue for some.
+
     // If gradio at some point stops sending outputs, this may break something
-    if (Array.isArray(res[res.length - 3])) {
-        res[res.length - 3] = null;
+    if (Array.isArray(res[res.length - 4])) {
+        //res[res.length - 4] = null;
+        // simply drop output args
+        res = res.slice(0, res.length - 4);
+    } else if (Array.isArray(res[res.length - 3])) {
+        // for submit_extras()
+        //res[res.length - 3] = null;
+        res = res.slice(0, res.length - 3);
     }
 
     return res;
@@ -189,7 +193,6 @@ function submit_img2img() {
     var res = create_submit_args(arguments);
 
     res[0] = id;
-    res[1] = get_tab_index('mode_img2img');
 
     return res;
 }
@@ -207,7 +210,6 @@ function submit_extras() {
 
     res[0] = id;
 
-    console.log(res);
     return res;
 }
 
@@ -375,10 +377,14 @@ function selectCheckpoint(name) {
     desiredCheckpointName = name;
     gradioApp().getElementById('change_checkpoint').click();
 }
+var desiredVAEName = 0;
+function selectVAE(vae) {
+    desiredVAEName = vae;
+}
 
-function currentImg2imgSourceResolution(w, h, scaleBy) {
-    var img = gradioApp().querySelector('#mode_img2img > div[style="display: block;"] img');
-    return img ? [img.naturalWidth, img.naturalHeight, scaleBy] : [0, 0, scaleBy];
+function currentImg2imgSourceResolution(w, h, r) {
+    var img = gradioApp().querySelector('#mode_img2img > div[style="display: block;"] :is(img, canvas)');
+    return img ? [img.naturalWidth || img.width, img.naturalHeight || img.height, r] : [0, 0, r];
 }
 
 function updateImg2imgResizeToTextAfterChangingImage() {

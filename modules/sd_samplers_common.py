@@ -5,8 +5,10 @@ import torch
 from PIL import Image
 from modules import devices, images, sd_vae_approx, sd_samplers, sd_vae_taesd, shared, sd_models
 from modules.shared import opts, state
+from backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
+from modules import extra_networks
 import k_diffusion.sampling
-
+from modules_forge import main_entry
 
 SamplerDataTuple = namedtuple('SamplerData', ['name', 'constructor', 'aliases', 'options'])
 
@@ -39,23 +41,28 @@ def samples_to_images_tensor(sample, approximation=None, model=None):
 
     if approximation is None or (shared.state.interrupted and opts.live_preview_fast_interrupt):
         approximation = approximation_indexes.get(opts.show_progress_type, 0)
-
-        from modules import lowvram
-        if approximation == 0 and lowvram.is_enabled(shared.sd_model) and not shared.opts.live_preview_allow_lowvram_full:
+        if approximation == 0:
             approximation = 1
 
     if approximation == 2:
         x_sample = sd_vae_approx.cheap_approximation(sample)
     elif approximation == 1:
-        x_sample = sd_vae_approx.model()(sample.to(devices.device, devices.dtype)).detach()
+        m = sd_vae_approx.model()
+        if m is None:
+            x_sample = sd_vae_approx.cheap_approximation(sample)
+        else:
+            x_sample = m(sample.to(devices.device, devices.dtype)).detach()
     elif approximation == 3:
-        x_sample = sd_vae_taesd.decoder_model()(sample.to(devices.device, devices.dtype)).detach()
-        x_sample = x_sample * 2 - 1
+        m = sd_vae_taesd.decoder_model()
+        if m is None:
+            x_sample = sd_vae_approx.cheap_approximation(sample)
+        else:
+            x_sample = m(sample.to(devices.device, devices.dtype)).detach()
+            x_sample = x_sample * 2 - 1
     else:
         if model is None:
             model = shared.sd_model
-        with torch.no_grad(), devices.without_autocast(): # fixes an issue with unstable VAEs that are flaky even in fp32
-            x_sample = model.decode_first_stage(sample.to(model.first_stage_model.dtype))
+        x_sample = model.decode_first_stage(sample)
 
     return x_sample
 
@@ -63,15 +70,17 @@ def samples_to_images_tensor(sample, approximation=None, model=None):
 def single_sample_to_image(sample, approximation=None):
     x_sample = samples_to_images_tensor(sample.unsqueeze(0), approximation)[0] * 0.5 + 0.5
 
-    x_sample = torch.clamp(x_sample, min=0.0, max=1.0)
-    x_sample = 255. * np.moveaxis(x_sample.cpu().numpy(), 0, 2)
-    x_sample = x_sample.astype(np.uint8)
+    x_sample = x_sample.cpu()
+    x_sample.clamp_(0.0, 1.0)
+    x_sample.mul_(255.)
+    x_sample.round_()
+    x_sample = x_sample.to(torch.uint8)
+    x_sample = np.moveaxis(x_sample.numpy(), 0, 2)
 
     return Image.fromarray(x_sample)
 
 
 def decode_first_stage(model, x):
-    x = x.to(devices.dtype_vae)
     approx_index = approximation_indexes.get(opts.sd_vae_decode_method, 0)
     return samples_to_images_tensor(x, approx_index, model)
 
@@ -95,7 +104,6 @@ def images_tensor_to_samples(image, approximation=None, model=None):
     else:
         if model is None:
             model = shared.sd_model
-        model.first_stage_model.to(devices.dtype_vae)
 
         image = image.to(shared.device, dtype=devices.dtype_vae)
         image = image * 2 - 1
@@ -155,50 +163,51 @@ def replace_torchsde_browinan():
 replace_torchsde_browinan()
 
 
-def apply_refiner(cfg_denoiser, sigma=None):
-    if opts.refiner_switch_by_sample_steps or sigma is None:
-        completed_ratio = cfg_denoiser.step / cfg_denoiser.total_steps
-        cfg_denoiser.p.extra_generation_params["Refiner switch by sampling steps"] = True
-
-    else:
-        # torch.max(sigma) only to handle rare case where we might have different sigmas in the same batch
-        try:
-            timestep = torch.argmin(torch.abs(cfg_denoiser.inner_model.sigmas.to(sigma.device) - torch.max(sigma)))
-        except AttributeError:  # for samplers that don't use sigmas (DDIM) sigma is actually the timestep
-            timestep = torch.max(sigma).to(dtype=int)
-        completed_ratio = (999 - timestep) / 1000
-
+def apply_refiner(cfg_denoiser, x):
+    completed_ratio = cfg_denoiser.step / cfg_denoiser.total_steps
     refiner_switch_at = cfg_denoiser.p.refiner_switch_at
     refiner_checkpoint_info = cfg_denoiser.p.refiner_checkpoint_info
-
+    
     if refiner_switch_at is not None and completed_ratio < refiner_switch_at:
         return False
-
+    
     if refiner_checkpoint_info is None or shared.sd_model.sd_checkpoint_info == refiner_checkpoint_info:
         return False
-
+    
     if getattr(cfg_denoiser.p, "enable_hr", False):
         is_second_pass = cfg_denoiser.p.is_hr_pass
-
+    
         if opts.hires_fix_refiner_pass == "first pass" and is_second_pass:
             return False
-
+    
         if opts.hires_fix_refiner_pass == "second pass" and not is_second_pass:
             return False
-
+    
         if opts.hires_fix_refiner_pass != "second pass":
             cfg_denoiser.p.extra_generation_params['Hires refiner'] = opts.hires_fix_refiner_pass
-
+    
     cfg_denoiser.p.extra_generation_params['Refiner'] = refiner_checkpoint_info.short_title
     cfg_denoiser.p.extra_generation_params['Refiner switch at'] = refiner_switch_at
-
+    
+    sampling_cleanup(sd_models.model_data.get_sd_model().forge_objects.unet)
+    
     with sd_models.SkipWritingToConfig():
-        sd_models.reload_model_weights(info=refiner_checkpoint_info)
-
-    devices.torch_gc()
+        fp_checkpoint = getattr(shared.opts, 'sd_model_checkpoint')
+        checkpoint_changed = main_entry.checkpoint_change(refiner_checkpoint_info.short_title, save=False, refresh=False)
+        if checkpoint_changed:
+            try:
+                main_entry.refresh_model_loading_parameters()
+                sd_models.forge_model_reload()
+            finally:
+                main_entry.checkpoint_change(fp_checkpoint, save=False, refresh=True)
+    
+    if not cfg_denoiser.p.disable_extra_networks:
+        extra_networks.activate(cfg_denoiser.p, cfg_denoiser.p.extra_network_data)
+    
     cfg_denoiser.p.setup_conds()
     cfg_denoiser.update_inner_model()
-
+    
+    sampling_prepare(sd_models.model_data.get_sd_model().forge_objects.unet, x=x)
     return True
 
 
@@ -246,7 +255,7 @@ class Sampler:
         self.eta_infotext_field = 'Eta'
         self.eta_default = 1.0
 
-        self.conditioning_key = getattr(shared.sd_model.model, 'conditioning_key', 'crossattn')
+        self.conditioning_key = 'crossattn'
 
         self.p = None
         self.model_wrap_cfg = None

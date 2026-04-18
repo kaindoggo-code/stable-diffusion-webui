@@ -13,11 +13,13 @@ class LCMCompVisDenoiser(DiscreteEpsDDPMDenoiser):
         original_timesteps = 50     # LCM Original Timesteps (default=50, for current version of LCM)
         self.skip_steps = timesteps // original_timesteps
 
-        alphas_cumprod_valid = torch.zeros((original_timesteps), dtype=torch.float32, device=model.device)
+        alphas_cumprod = 1.0 / (model.forge_objects.unet.model.predictor.sigmas ** 2.0 + 1.0)
+        alphas_cumprod_valid = torch.zeros(original_timesteps, dtype=torch.float32)
         for x in range(original_timesteps):
-            alphas_cumprod_valid[original_timesteps - 1 - x] = model.alphas_cumprod[timesteps - 1 - x * self.skip_steps]
+            alphas_cumprod_valid[original_timesteps - 1 - x] = alphas_cumprod[timesteps - 1 - x * self.skip_steps]
 
         super().__init__(model, alphas_cumprod_valid, quantize=None)
+        self.predictor = model.forge_objects.unet.model.predictor
 
 
     def get_sigmas(self, n=None,):
@@ -27,14 +29,14 @@ class LCMCompVisDenoiser(DiscreteEpsDDPMDenoiser):
         start = self.sigma_to_t(self.sigma_max)
         end = self.sigma_to_t(self.sigma_min)
 
-        t = torch.linspace(start, end, n, device=shared.sd_model.device)
+        t = torch.linspace(start, end, n, device=self.sigmas.device)
 
         return sampling.append_zero(self.t_to_sigma(t))
 
 
     def sigma_to_t(self, sigma, quantize=None):
         log_sigma = sigma.log()
-        dists = log_sigma - self.log_sigmas[:, None]
+        dists = log_sigma - self.log_sigmas.to(sigma)[:, None]
         return dists.abs().argmin(dim=0).view(sigma.shape) * self.skip_steps + (self.skip_steps - 1)
 
 

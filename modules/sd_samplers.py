@@ -5,13 +5,14 @@ import logging
 from modules import sd_samplers_kdiffusion, sd_samplers_timesteps, sd_samplers_lcm, shared, sd_samplers_common, sd_schedulers
 
 # imports for functions that previously were here and are used by other modules
-samples_to_image_grid = sd_samplers_common.samples_to_image_grid
-sample_to_image = sd_samplers_common.sample_to_image
+from modules.sd_samplers_common import samples_to_image_grid, sample_to_image  # noqa: F401
+from modules_forge import alter_samplers
 
 all_samplers = [
     *sd_samplers_kdiffusion.samplers_data_k_diffusion,
     *sd_samplers_timesteps.samplers_data_timesteps,
     *sd_samplers_lcm.samplers_data_lcm,
+    *alter_samplers.samplers_data_alter
 ]
 all_samplers_map = {x.name: x for x in all_samplers}
 
@@ -56,6 +57,17 @@ def set_samplers():
         samplers_map[sampler.name.lower()] = sampler.name
         for alias in sampler.aliases:
             samplers_map[alias.lower()] = sampler.name
+
+    return
+
+
+def add_sampler(sampler):
+    global all_samplers, all_samplers_map
+    if sampler.name not in [x.name for x in all_samplers]:
+        all_samplers.append(sampler)
+        all_samplers_map = {x.name: x for x in all_samplers}
+        set_samplers()
+    return
 
 
 def visible_sampler_names():

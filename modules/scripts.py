@@ -30,8 +30,9 @@ class PostSampleArgs:
         self.samples = samples
 
 class PostprocessImageArgs:
-    def __init__(self, image):
+    def __init__(self, image, index):
         self.image = image
+        self.index = index
 
 class PostProcessMaskOverlayArgs:
     def __init__(self, index, mask_for_overlay, overlay_image):
@@ -95,6 +96,9 @@ class Script:
 
     controls = None
     """A list of controls returned by the ui()."""
+
+    sorting_priority = 0
+    """Larger number will appear downwards in the UI."""
 
     def title(self):
         """this function should return the title of the script. This is what will be displayed in the dropdown menu."""
@@ -492,7 +496,13 @@ def load_scripts():
 
     scripts_list = list_scripts("scripts", ".py") + list_scripts("modules/processing_scripts", ".py", include_extensions=False)
 
+    for s in scripts_list:
+        if s.basedir not in sys.path:
+            sys.path = [s.basedir] + sys.path
+
     syspath = sys.path
+
+    # print(f'Current System Paths = {syspath}')
 
     def register_scripts_from_module(module):
         for script_class in module.__dict__.values():
@@ -690,6 +700,8 @@ class ScriptRunner:
         if scriptlist is None:
             scriptlist = self.alwayson_scripts
 
+        scriptlist = sorted(scriptlist, key=lambda x: x.sorting_priority)
+
         for script in scriptlist:
             if script.alwayson and script.section != section:
                 continue
@@ -849,6 +861,14 @@ class ScriptRunner:
             except Exception:
                 errors.report(f"Error running before_process_batch: {script.filename}", exc_info=True)
 
+    def before_process_init_images(self, p, pp, **kwargs):
+        for script in self.ordered_scripts('before_process_init_images'):
+            try:
+                script_args = p.script_args[script.args_from:script.args_to]
+                script.before_process_init_images(p, pp, *script_args, **kwargs)
+            except Exception:
+                errors.report(f"Error running before_process_init_images: {script.filename}", exc_info=True)
+
     def after_extra_networks_activate(self, p, **kwargs):
         for script in self.ordered_scripts('after_extra_networks_activate'):
             try:
@@ -864,6 +884,14 @@ class ScriptRunner:
                 script.process_batch(p, *script_args, **kwargs)
             except Exception:
                 errors.report(f"Error running process_batch: {script.filename}", exc_info=True)
+
+    def process_before_every_sampling(self, p, **kwargs):
+        for script in self.alwayson_scripts:
+            try:
+                script_args = p.script_args[script.args_from:script.args_to]
+                script.process_before_every_sampling(p, *script_args, **kwargs)
+            except Exception:
+                errors.report(f"Error running process_before_every_sampling: {script.filename}", exc_info=True)
 
     def postprocess(self, p, processed):
         for script in self.ordered_scripts('postprocess'):

@@ -141,7 +141,7 @@ class SdConditioning(list):
     A list with prompts for stable diffusion's conditioner model.
     Can also specify width and height of created image - SDXL needs it.
     """
-    def __init__(self, prompts, is_negative_prompt=False, width=None, height=None, copy_from=None):
+    def __init__(self, prompts, is_negative_prompt=False, width=None, height=None, copy_from=None, distilled_cfg_scale=None):
         super().__init__()
         self.extend(prompts)
 
@@ -151,6 +151,7 @@ class SdConditioning(list):
         self.is_negative_prompt = is_negative_prompt or getattr(copy_from, 'is_negative_prompt', False)
         self.width = width or getattr(copy_from, 'width', None)
         self.height = height or getattr(copy_from, 'height', None)
+        self.distilled_cfg_scale = distilled_cfg_scale or getattr(copy_from, 'distilled_cfg_scale', None)
 
 
 
@@ -276,6 +277,19 @@ class DictWithShape(dict):
     def shape(self):
         return self["crossattn"].shape
 
+    def to(self, *args, **kwargs):
+        for k in self.keys():
+            if isinstance(self[k], torch.Tensor):
+                self[k] = self[k].to(*args, **kwargs)
+        return self
+
+    def advanced_indexing(self, item):
+        result = {}
+        for k in self.keys():
+            if isinstance(self[k], torch.Tensor):
+                result[k] = self[k][item]
+        return DictWithShape(result)
+
 
 def reconstruct_cond_batch(c: list[list[ScheduledPromptConditioning]], current_step):
     param = c[0][0].cond
@@ -284,7 +298,7 @@ def reconstruct_cond_batch(c: list[list[ScheduledPromptConditioning]], current_s
     if is_dict:
         dict_cond = param
         res = {k: torch.zeros((len(c),) + param.shape, device=param.device, dtype=param.dtype) for k, param in dict_cond.items()}
-        res = DictWithShape(res, (len(c),) + dict_cond['crossattn'].shape)
+        res = DictWithShape(res)
     else:
         res = torch.zeros((len(c),) + param.shape, device=param.device, dtype=param.dtype)
 
@@ -305,17 +319,19 @@ def reconstruct_cond_batch(c: list[list[ScheduledPromptConditioning]], current_s
 
 
 def stack_conds(tensors):
-    # if prompts have wildly different lengths above the limit we'll get tensors of different shapes
-    # and won't be able to torch.stack them. So this fixes that.
-    token_count = max([x.shape[0] for x in tensors])
-    for i in range(len(tensors)):
-        if tensors[i].shape[0] != token_count:
-            last_vector = tensors[i][-1:]
-            last_vector_repeated = last_vector.repeat([token_count - tensors[i].shape[0], 1])
-            tensors[i] = torch.vstack([tensors[i], last_vector_repeated])
-
-    return torch.stack(tensors)
-
+    try:
+        result = torch.stack(tensors)
+    except:
+        # if prompts have wildly different lengths above the limit we'll get tensors of different shapes
+        # and won't be able to torch.stack them. So this fixes that.
+        token_count = max([x.shape[0] for x in tensors])
+        for i in range(len(tensors)):
+            if tensors[i].shape[0] != token_count:
+                last_vector = tensors[i][-1:]
+                last_vector_repeated = last_vector.repeat([token_count - tensors[i].shape[0], 1])
+                tensors[i] = torch.vstack([tensors[i], last_vector_repeated])
+        result = torch.stack(tensors)
+    return result
 
 
 def reconstruct_multicond_batch(c: MulticondLearnedConditioning, current_step):
@@ -342,7 +358,7 @@ def reconstruct_multicond_batch(c: MulticondLearnedConditioning, current_step):
     if isinstance(tensors[0], dict):
         keys = list(tensors[0].keys())
         stacked = {k: stack_conds([x[k] for x in tensors]) for k in keys}
-        stacked = DictWithShape(stacked, stacked['crossattn'].shape)
+        stacked = DictWithShape(stacked)
     else:
         stacked = stack_conds(tensors).to(device=param.device, dtype=param.dtype)
 

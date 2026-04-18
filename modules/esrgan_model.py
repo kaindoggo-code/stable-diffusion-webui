@@ -2,6 +2,7 @@ from modules import modelloader, devices, errors
 from modules.shared import opts
 from modules.upscaler import Upscaler, UpscalerData
 from modules.upscaler_utils import upscale_with_model
+from modules_forge.utils import prepare_free_memory
 
 
 class UpscalerESRGAN(Upscaler):
@@ -12,7 +13,7 @@ class UpscalerESRGAN(Upscaler):
         self.scalers = []
         self.user_path = dirname
         super().__init__()
-        model_paths = self.find_models(ext_filter=[".pt", ".pth"])
+        model_paths = self.find_models(ext_filter=[".pt", ".pth", ".safetensors"])
         scalers = []
         if len(model_paths) == 0:
             scaler_data = UpscalerData(self.model_name, self.model_url, self, 4)
@@ -27,6 +28,7 @@ class UpscalerESRGAN(Upscaler):
             self.scalers.append(scaler_data)
 
     def do_upscale(self, img, selected_model):
+        prepare_free_memory()
         try:
             model = self.load_model(selected_model)
         except Exception:

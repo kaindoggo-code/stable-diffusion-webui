@@ -192,5 +192,5 @@ with safe.Extra(handler):
 
 
 unsafe_torch_load = torch.load
-torch.load = load
+# torch.load = load  <- Forge do not need it!
 global_extra_handler = None

@@ -7,6 +7,8 @@ from modules.script_callbacks import ExtraNoiseParams, extra_noise_callback
 
 from modules.shared import opts
 import modules.shared as shared
+from backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
+
 
 samplers_timesteps = [
     ('DDIM', sd_samplers_timesteps_impl.ddim, ['ddim'], {}),
@@ -26,48 +28,22 @@ class CompVisTimestepsDenoiser(torch.nn.Module):
     def __init__(self, model, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.inner_model = model
+        self.inner_model.alphas_cumprod = 1.0 / (self.inner_model.forge_objects.unet.model.predictor.sigmas ** 2.0 + 1.0)
 
     def forward(self, input, timesteps, **kwargs):
         return self.inner_model.apply_model(input, timesteps, **kwargs)
-
-
-class CompVisTimestepsVDenoiser(torch.nn.Module):
-    def __init__(self, model, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.inner_model = model
-
-    def predict_eps_from_z_and_v(self, x_t, t, v):
-        return torch.sqrt(self.inner_model.alphas_cumprod)[t.to(torch.int), None, None, None] * v + torch.sqrt(1 - self.inner_model.alphas_cumprod)[t.to(torch.int), None, None, None] * x_t
-
-    def forward(self, input, timesteps, **kwargs):
-        model_output = self.inner_model.apply_model(input, timesteps, **kwargs)
-        e_t = self.predict_eps_from_z_and_v(input, timesteps, model_output)
-        return e_t
 
 
 class CFGDenoiserTimesteps(CFGDenoiser):
 
     def __init__(self, sampler):
         super().__init__(sampler)
-
-        self.alphas = shared.sd_model.alphas_cumprod
-        self.mask_before_denoising = True
-
-    def get_pred_x0(self, x_in, x_out, sigma):
-        ts = sigma.to(dtype=int)
-
-        a_t = self.alphas[ts][:, None, None, None]
-        sqrt_one_minus_at = (1 - a_t).sqrt()
-
-        pred_x0 = (x_in - sqrt_one_minus_at * x_out) / a_t.sqrt()
-
-        return pred_x0
+        self.classic_ddim_eps_estimation = True
 
     @property
     def inner_model(self):
         if self.model_wrap is None:
-            denoiser = CompVisTimestepsVDenoiser if shared.sd_model.parameterization == "v" else CompVisTimestepsDenoiser
-            self.model_wrap = denoiser(shared.sd_model)
+            self.model_wrap = CompVisTimestepsDenoiser(shared.sd_model)
 
         return self.model_wrap
 
@@ -96,16 +72,21 @@ class CompVisSampler(sd_samplers_common.Sampler):
         return timesteps
 
     def sample_img2img(self, p, x, noise, conditioning, unconditional_conditioning, steps=None, image_conditioning=None):
+        unet_patcher = self.model_wrap.inner_model.forge_objects.unet
+        sampling_prepare(self.model_wrap.inner_model.forge_objects.unet, x=x)
+
+        self.model_wrap.inner_model.alphas_cumprod = self.model_wrap.inner_model.alphas_cumprod.to(x.device)
+
         steps, t_enc = sd_samplers_common.setup_img2img_steps(p, steps)
 
-        timesteps = self.get_timesteps(p, steps)
+        timesteps = self.get_timesteps(p, steps).to(x.device)
         timesteps_sched = timesteps[:t_enc]
 
         alphas_cumprod = shared.sd_model.alphas_cumprod
         sqrt_alpha_cumprod = torch.sqrt(alphas_cumprod[timesteps[t_enc]])
         sqrt_one_minus_alpha_cumprod = torch.sqrt(1 - alphas_cumprod[timesteps[t_enc]])
 
-        xi = x * sqrt_alpha_cumprod + noise * sqrt_one_minus_alpha_cumprod
+        xi = x.to(noise) * sqrt_alpha_cumprod + noise * sqrt_one_minus_alpha_cumprod
 
         if opts.img2img_extra_noise > 0:
             p.extra_generation_params["Extra noise"] = opts.img2img_extra_noise
@@ -136,11 +117,18 @@ class CompVisSampler(sd_samplers_common.Sampler):
 
         self.add_infotext(p)
 
+        sampling_cleanup(unet_patcher)
+
         return samples
 
     def sample(self, p, x, conditioning, unconditional_conditioning, steps=None, image_conditioning=None):
+        unet_patcher = self.model_wrap.inner_model.forge_objects.unet
+        sampling_prepare(self.model_wrap.inner_model.forge_objects.unet, x=x)
+
+        self.model_wrap.inner_model.alphas_cumprod = self.model_wrap.inner_model.alphas_cumprod.to(x.device)
+
         steps = steps or p.steps
-        timesteps = self.get_timesteps(p, steps)
+        timesteps = self.get_timesteps(p, steps).to(x.device)
 
         extra_params_kwargs = self.initialize(p)
         parameters = inspect.signature(self.func).parameters
@@ -159,6 +147,8 @@ class CompVisSampler(sd_samplers_common.Sampler):
         samples = self.launch_sampling(steps, lambda: self.func(self.model_wrap_cfg, x, extra_args=self.sampler_extra_args, disable=False, callback=self.callback_state, **extra_params_kwargs))
 
         self.add_infotext(p)
+
+        sampling_cleanup(unet_patcher)
 
         return samples
 

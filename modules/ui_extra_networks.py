@@ -214,6 +214,16 @@ class ExtraNetworksPage:
         desc = metadata.get("description", None)
         if desc is not None:
             item["description"] = desc
+        vae = metadata.get('vae_te', None)
+        if vae is None:     # fallback to old type
+            vae = metadata.get("vae", None)
+        if vae is not None:
+            if isinstance(vae, str):
+                vae = [vae]
+            item["vae"] = vae
+        version = metadata.get("sd_version_str", None)
+        if version is not None:
+            item["sd_version_str"] = version
 
         item["user_metadata"] = metadata
 
@@ -257,7 +267,7 @@ class ExtraNetworksPage:
         background_image = f'<img src="{html.escape(preview)}" class="preview" loading="lazy">' if preview else ''
 
         onclick = item.get("onclick", None)
-        if onclick is None:
+        if onclick is None:     #   this path is 'Textual Inversion' and 'Lora'
             # Don't quote prompt/neg_prompt since they are stored as js strings already.
             onclick_js_tpl = "cardClicked('{tabname}', {prompt}, {neg_prompt}, {allow_neg});"
             onclick = onclick_js_tpl.format(
@@ -269,6 +279,9 @@ class ExtraNetworksPage:
                 }
             )
             onclick = html.escape(onclick)
+        else:                   #   this path is 'Checkpoints'
+            vae = item.get("vae", [])
+            onclick = html.escape(f"selectVAE({vae});") + onclick
 
         btn_copy_path = self.btn_copy_path_tpl.format(**{"filename": item["filename"]})
         btn_metadata = ""
@@ -304,10 +317,12 @@ class ExtraNetworksPage:
         if search_only and shared.opts.extra_networks_hidden_models == "Never":
             return ""
 
+        item_sort_keys = item.get("sort_keys", {})
+        item_sort_keys["SDversion"] = item.get("sd_version_str", "SdVersion.Unknown")
         sort_keys = " ".join(
             [
                 f'data-sort-{k}="{html.escape(str(v))}"'
-                for k, v in item.get("sort_keys", {}).items()
+                for k, v in item_sort_keys.items()
             ]
         ).strip()
 
@@ -693,10 +708,10 @@ def initialize():
 
 def register_default_pages():
     from modules.ui_extra_networks_textual_inversion import ExtraNetworksPageTextualInversion
-    from modules.ui_extra_networks_hypernets import ExtraNetworksPageHypernetworks
+    # from modules.ui_extra_networks_hypernets import ExtraNetworksPageHypernetworks
     from modules.ui_extra_networks_checkpoints import ExtraNetworksPageCheckpoints
     register_page(ExtraNetworksPageTextualInversion())
-    register_page(ExtraNetworksPageHypernetworks())
+    # register_page(ExtraNetworksPageHypernetworks())
     register_page(ExtraNetworksPageCheckpoints())
 
 
@@ -750,9 +765,11 @@ def create_ui(interface: gr.Blocks, unrelated_tabs, tabname):
             elem_id = f"{tabname}_{page.extra_networks_tabname}_cards_html"
             page_elem = gr.HTML(page.create_html(tabname, empty=True), elem_id=elem_id)
             ui.pages.append(page_elem)
+
             editor = page.create_user_metadata_editor(ui, tabname)
             editor.create_ui()
             ui.user_metadata_editors.append(editor)
+
             related_tabs.append(tab)
 
     ui.button_save_preview = gr.Button('Save preview', elem_id=f"{tabname}_save_preview", visible=False)

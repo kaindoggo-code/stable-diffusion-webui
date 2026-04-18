@@ -35,9 +35,7 @@ def refresh_vae_list():
 
 
 def cross_attention_optimizations():
-    import modules.sd_hijack
-
-    return ["Automatic"] + [x.title() for x in modules.sd_hijack.optimizers] + ["None"]
+    return ["Automatic"]
 
 
 def sd_unet_items():
@@ -86,6 +84,8 @@ def get_infotext_names():
         for _, name in tab_data.get("fields") or []:
             if isinstance(name, str):
                 res[name] = 1
+
+    res['Lora hashes'] = 1
 
     return list(res)
 

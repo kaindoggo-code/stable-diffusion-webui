@@ -1,9 +1,8 @@
 import importlib
 import logging
-import os
 import sys
 import warnings
-from threading import Thread
+import os
 
 from modules.timer import startup_timer
 
@@ -26,17 +25,11 @@ def imports():
     from modules import paths, timer, import_hook, errors  # noqa: F401
     startup_timer.record("setup paths")
 
-    import ldm.modules.encoders.modules  # noqa: F401
-    startup_timer.record("import ldm")
-
-    import sgm.modules.encoders.modules  # noqa: F401
-    startup_timer.record("import sgm")
-
     from modules import shared_init
     shared_init.initialize()
     startup_timer.record("initialize shared")
 
-    from modules import processing, gradio_extensons, ui  # noqa: F401
+    from modules import processing, gradio_extensions, ui  # noqa: F401
     startup_timer.record("other imports")
 
 
@@ -123,37 +116,9 @@ def initialize_rest(*, reload_script_modules=False):
     sd_vae.refresh_vae_list()
     startup_timer.record("refresh VAE")
 
-    from modules import textual_inversion
-    textual_inversion.textual_inversion.list_textual_inversion_templates()
-    startup_timer.record("refresh textual inversion templates")
-
-    from modules import script_callbacks, sd_hijack_optimizations, sd_hijack
-    script_callbacks.on_list_optimizers(sd_hijack_optimizations.list_optimizers)
-    sd_hijack.list_optimizers()
-    startup_timer.record("scripts list_optimizers")
-
     from modules import sd_unet
     sd_unet.list_unets()
     startup_timer.record("scripts list_unets")
-
-    def load_model():
-        """
-        Accesses shared.sd_model property to load model.
-        After it's available, if it has been loaded before this access by some extension,
-        its optimization may be None because the list of optimizers has not been filled
-        by that time, so we apply optimization again.
-        """
-        from modules import devices
-        devices.torch_npu_set_device()
-
-        shared.sd_model  # noqa: B018
-
-        if sd_hijack.current_optimizer is None:
-            sd_hijack.apply_optimizations()
-
-        devices.first_time_calculation()
-    if not shared.cmd_opts.skip_load_model_at_start:
-        Thread(target=load_model).start()
 
     from modules import shared_items
     shared_items.reload_hypernetworks()
@@ -167,3 +132,5 @@ def initialize_rest(*, reload_script_modules=False):
     extra_networks.initialize()
     extra_networks.register_default_extra_networks()
     startup_timer.record("initialize extra networks")
+
+    return
