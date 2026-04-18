@@ -22,3 +22,5 @@ Launching launch.py...
 Python 3.10.20 (main, Mar  3 2026, 09:24:47) [GCC 13.3.0]
 Version: f2.0.1v1.10.1-v1.10.1-2-gd6e88974e
 Commit hash: d6e88974ef2a41aab328a8ca47aecebfd463d5c3
+Legacy Preprocessor init warning: Unable to install insightface automatically. Please try run `pip install insightface` manually.
+Launching Web UI with arguments: --listen --port 7860 --xformers --no-half-vae --precision full --listen --api --opt-sdp-attention --no-half-vae --disable-xformers
